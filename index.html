@@ -11,11 +11,20 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
+    <div class="demo-banner" id="demo-banner">
+      <div class="demo-banner-content">
+        This is a demo website built with Gym OS by Beyond Pixells. Want one for your gym? <a href="https://somilsharma2000.github.io/beyond-pixells/" target="_blank" rel="noopener">Contact us.</a>
+      </div>
+      <button class="demo-banner-close" id="demo-banner-close" aria-label="Dismiss banner">&times;</button>
+    </div>
     <div class="site-shell">
       <header class="site-header" id="top">
         <a class="brand" href="#top" aria-label="Oxigen Fitness home"><span class="brand-mark">O</span><span id="brand-name">OXIGEN FITNESS</span></a>
         <nav class="desktop-nav" aria-label="Main navigation"><a href="#club">Club</a><a href="#training">Training</a><a href="#classes">Classes</a><a href="#membership">Memberships</a><a href="#contact">Contact</a></nav>
-        <a class="button button-dark header-cta" href="#trial">Book a trial <span>↗</span></a>
+        <div class="header-actions">
+          <a class="member-login-link" href="https://somilsharma2000.github.io/gym-os-platform/" target="_blank" rel="noopener">Member Login</a>
+          <a class="button button-dark header-cta" href="#trial">Book a trial <span>↗</span></a>
+        </div>
       </header>
 
       <main>
@@ -52,7 +61,7 @@
         <section id="facilities" class="facility-grid"><div class="facility-panel black"><p class="eyebrow-text">06 / FACILITIES</p><h2>Built for the work.</h2><p>The club can configure its actual training zones, equipment, changing facilities and accessibility information before launch.</p></div><div class="facility-panel bronze"><p class="card-kicker">THE SPACE</p><div class="equipment-lines"><span>TRAINING FLOOR</span><span>COACHING AREAS</span><span>MEMBER SUPPORT</span></div></div></section>
 
         <section id="trial" class="trial-section section-pad"><div><p class="eyebrow-text">07 / TRIAL JOURNEY</p><h2>Start with<br /><em>one useful visit.</em></h2><p>Tell us what you want to work on. The club team will confirm the most suitable visit time and next step.</p><ol><li><b>01</b><span>Share your goal and preferred visit time.</span></li><li><b>02</b><span>A team member confirms your visit.</span></li><li><b>03</b><span>Train, ask questions and decide with clarity.</span></li></ol></div>
-          <form class="lead-form" id="trial-form" novalidate><input type="hidden" name="interest" value="Trial visit" /><label>Full name<input name="fullName" required minlength="2" autocomplete="name" placeholder="Your name" /></label><div class="form-pair"><label>Phone<input name="phone" inputmode="tel" autocomplete="tel" placeholder="Phone number" /></label><label>Email<input name="email" type="email" autocomplete="email" placeholder="Email address" /></label></div><label>What would you like to work on?<input name="fitnessGoal" placeholder="Strength, fitness, mobility…" /></label><label>Preferred visit time<input name="preferredVisitAt" type="datetime-local" /></label><label class="consent"><input name="consent" type="checkbox" required /><span>I agree that Oxigen may use these details to respond to my enquiry. I understand this is not a membership purchase.</span></label><button class="button button-dark form-submit" type="submit">Request a trial <span>↗</span></button><p class="form-status" role="status" aria-live="polite"></p></form>
+          <form class="lead-form" id="trial-form" novalidate><input type="hidden" name="interest" value="Trial visit" /><label>Full name<input name="fullName" required minlength="2" autocomplete="name" placeholder="Your name" /></label><div class="form-pair"><label>Phone<input name="phone" inputmode="tel" autocomplete="tel" placeholder="Phone number" /></label><label>Email<input name="email" type="email" autocomplete="email" placeholder="Email address" /></label></div><label>What would you like to work on?<input name="fitnessGoal" placeholder="Strength, fitness, mobility…" /></label><label>Preferred visit time<input name="preferredVisitAt" type="datetime-local" /></label><label class="consent"><input name="consent" type="checkbox" required /><span>I agree that Oxigen may use these details to respond to my enquiry. I understand this is not a membership purchase.</span></label><button class="button button-dark form-submit" type="submit">Request a trial <span>↗</span></button><p class="form-status" role="status" aria-live="polite"></p><p class="form-managed-note">This enquiry is managed through Gym OS by Beyond Pixells</p></form>
         </section>
 
         <section id="member-experience" class="member-preview"><div><p class="eyebrow-text">08 / MEMBER EXPERIENCE PREVIEW</p><h2>Your next session,<br /><em>made simpler.</em></h2><p>Once enabled by the club, members can use a private experience for bookings, attendance, membership context and direct club support.</p></div><div class="portal-preview" aria-label="Illustrative member portal preview"><header><span class="brand-mark small">O</span><span>MEMBER SPACE</span><span class="live-dot">PRIVATE</span></header><div class="portal-stats"><div><small>NEXT SESSION</small><b>Confirm with the club</b></div><div><small>MEMBER STATUS</small><b>Activated after joining</b></div></div><div class="portal-list"><span>Bookings & class updates</span><span>Attendance context</span><span>Club support</span></div></div></section>
@@ -60,7 +69,7 @@
         <section id="contact" class="contact-section"><div><p class="eyebrow-text">09 / CONTACT</p><h2>Let’s make the<br /><em>first step easy.</em></h2><p id="contact-copy">Use the trial request above, or choose an approved contact channel once the club configuration is complete.</p></div><div class="contact-actions"><a class="button button-dark disabled-link" data-contact="whatsApp" href="#contact">WhatsApp the club <span>↗</span></a><a class="button button-light disabled-link" data-contact="instagramUrl" href="#contact">Follow on Instagram <span>↗</span></a><a class="text-link" data-contact="email" href="#contact">Email the club <span>→</span></a><p class="contact-note">Live contact details are configured by the club before launch.</p></div></section>
       </main>
 
-      <footer><a class="brand" href="#top"><span class="brand-mark">O</span><span id="footer-brand">OXIGEN FITNESS</span></a><p>Public website configuration required before launch.</p><a href="#top">Back to top ↑</a></footer>
+      <footer><a class="brand" href="#top"><span class="brand-mark">O</span><span id="footer-brand">OXIGEN FITNESS</span></a><a class="footer-credit" href="https://somilsharma2000.github.io/beyond-pixells/" target="_blank" rel="noopener">Powered by Beyond Pixells — Gym OS</a><a href="#top">Back to top ↑</a></footer>
     </div>
     <script src="./site.config.js"></script>
     <script src="./script.js"></script>
