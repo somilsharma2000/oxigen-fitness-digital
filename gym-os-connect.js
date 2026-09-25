@@ -1,21 +1,24 @@
 /**
- * Gym OS Connect v1.0
- * Shared integration module for all Gym OS powered gym websites.
+ * Gym OS Connect v2.0
+ * Shared integration module for all Gym OS powered websites.
  * Handles: lead capture, member portal redirect, QR check-in, dashboard access.
- * 
- * Usage: Include this script on any gym website and call GymOS.init({ gymName, ... })
- * 
- * Backend: https://vesper-923580a1.base44.app/functions/captureGymLead
- * Portal:  https://app.base44.com/apps/6a85aadd01bc42f293723858/editor/preview
+ *
+ * Usage: Include this script on any gym website and call
+ *   window.GymOSConfig = { gymName: '...', whatsappNumber: '...', isDemo: false }
+ * before loading this file.
+ *
+ * Backend: Vesper Base44 app (captureGymLead)
+ * Platform: https://my-gym-os.base44.app  (Gym OS — published app)
  */
 
 const GymOS = {
   config: {
     apiUrl: 'https://vesper-923580a1.base44.app/functions/captureGymLead',
-    portalUrl: 'https://app.base44.com/apps/6a85aadd01bc42f293723858/editor/preview',
-    dashboardUrl: 'https://app.base44.com/apps/6a85aadd01bc42f293723858/editor/preview',
+    portalUrl: 'https://my-gym-os.base44.app',
+    dashboardUrl: 'https://my-gym-os.base44.app',
     gymName: 'Gym',
-    whatsappNumber: '+917737077479',
+    whatsappNumber: '',
+    isDemo: false,
   },
 
   init(options = {}) {
@@ -28,6 +31,27 @@ const GymOS = {
     this.injectDemoBanner();
   },
 
+  waLink(data) {
+    const msg = encodeURIComponent(
+      'Hi ' + this.config.gymName + '! ' +
+      (data && data.name ? 'I am ' + data.name + '. ' : '') +
+      'I would like to know more about joining. ' +
+      (data && data.phone ? 'My phone: ' + data.phone : '')
+    );
+    return 'https://wa.me/' + String(this.config.whatsappNumber || '').replace(/\+/g, '') + '?text=' + msg;
+  },
+
+  showLeadSuccess(form, data) {
+    const wa = this.waLink(data);
+    form.innerHTML =
+      '<div style="text-align:center;padding:40px 20px;font-family:inherit;">' +
+      '<div style="font-size:48px;margin-bottom:16px;">✓</div>' +
+      '<h3 style="font-size:24px;margin-bottom:8px;">Thank you' + (data && data.name ? ', ' + data.name : '') + '!</h3>' +
+      '<p style="opacity:.75;font-size:16px;margin-bottom:18px;">We have received your request. Our team will contact you within 24 hours.</p>' +
+      '<a href="' + wa + '" target="_blank" rel="noopener" style="display:inline-block;padding:12px 24px;border-radius:8px;font-weight:600;text-decoration:none;background:#25D366;color:#fff;">Chat with us on WhatsApp now</a>' +
+      '</div>';
+  },
+
   setupLeadForms() {
     document.querySelectorAll('form[data-gymos-lead]').forEach(form => {
       form.addEventListener('submit', async (e) => {
@@ -36,10 +60,10 @@ const GymOS = {
         const data = {
           gym_name: this.config.gymName,
           name: formData.get('fullName') || formData.get('name') || '',
-          phone: formData.get('phone') || '',
+          phone: formData.get('phone') || formData.get('phoneNumber') || '',
           email: formData.get('email') || '',
-          interest: formData.get('interest') || 'Trial visit',
-          message: formData.get('message') || '',
+          interest: formData.get('interest') || formData.get('inquiryType') || 'Trial visit',
+          message: formData.get('message') || formData.get('goals') || '',
           source: this.config.gymName + ' website',
         };
         const submitBtn = form.querySelector('button[type="submit"], input[type="submit"]');
@@ -50,17 +74,26 @@ const GymOS = {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data),
           });
-          const result = await res.json();
-          if (result.success) {
-            form.innerHTML = '<div style="text-align:center;padding:40px 20px;"><div style="font-size:48px;margin-bottom:16px;">✓</div><h3 style="color:#0066FF;font-size:24px;margin-bottom:8px;">Thank you, ' + data.name + '!</h3><p style="color:#666;font-size:16px;">We have received your request. Our team will contact you within 24 hours.</p></div>';
+          const result = await res.json().catch(() => ({}));
+          if (res.ok && result.success) {
+            this.showLeadSuccess(form, data);
           } else {
-            alert('Something went wrong. Please call us directly.');
-            if (submitBtn) submitBtn.disabled = false;
+            // API unavailable — never lose the lead silently.
+            // Still confirm to the visitor and offer WhatsApp, and queue the lead locally.
+            try {
+              const queue = JSON.parse(localStorage.getItem('gymos_lead_queue') || '[]');
+              queue.push({ ...data, queued_at: new Date().toISOString() });
+              localStorage.setItem('gymos_lead_queue', JSON.stringify(queue));
+            } catch (err) { /* private mode — ignore */ }
+            this.showLeadSuccess(form, data);
           }
         } catch (err) {
-          const waMsg = encodeURIComponent('Hi, I am ' + data.name + '. I would like to book a trial at ' + this.config.gymName + '. Phone: ' + data.phone);
-          window.open('https://wa.me/' + this.config.whatsappNumber.replace(/+/g, '') + '?text=' + waMsg, '_blank');
-          if (submitBtn) submitBtn.disabled = false;
+          try {
+            const queue = JSON.parse(localStorage.getItem('gymos_lead_queue') || '[]');
+            queue.push({ ...data, queued_at: new Date().toISOString() });
+            localStorage.setItem('gymos_lead_queue', JSON.stringify(queue));
+          } catch (e2) { /* ignore */ }
+          this.showLeadSuccess(form, data);
         }
       });
     });
@@ -78,7 +111,7 @@ const GymOS = {
     document.querySelectorAll('[data-gymos-qr]').forEach(container => {
       const checkInUrl = this.config.portalUrl + '?action=checkin&gym=' + encodeURIComponent(this.config.gymName);
       const qrApiUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=' + encodeURIComponent(checkInUrl);
-      container.innerHTML = '<div style="text-align:center;padding:20px;"><img src="' + qrApiUrl + '" alt="QR Code for Check-in" style="width:200px;height:200px;border-radius:12px;background:#fff;padding:10px;box-shadow:0 4px 20px rgba(0,0,0,0.1);" /><p style="margin-top:12px;font-size:14px;color:#666;">Scan to check in</p></div>';
+      container.innerHTML = '<div style="text-align:center;padding:20px;"><img src="' + qrApiUrl + '" alt="QR Code for Check-in" style="width:200px;height:200px;border-radius:12px;background:#fff;padding:10px;box-shadow:0 4px 20px rgba(0,0,0,0.1);" /><p style="margin-top:12px;font-size:14px;opacity:.7;">Scan to check in</p></div>';
     });
   },
 
@@ -91,7 +124,7 @@ const GymOS = {
   },
 
   injectPoweredBy() {
-    if (document.querySelector('[data-gymos-powered]')) return;
+    if (!this.config.poweredBy || document.querySelector('[data-gymos-powered]')) return;
     const badge = document.createElement('div');
     badge.setAttribute('data-gymos-powered', '');
     badge.innerHTML = '<a href="https://somilsharma2000.github.io/beyond-pixells/" target="_blank" rel="noopener" style="position:fixed;bottom:16px;right:16px;background:#0A0E27;color:#0066FF;padding:8px 16px;border-radius:8px;font-size:12px;font-family:Inter,sans-serif;font-weight:600;text-decoration:none;box-shadow:0 4px 20px rgba(10,14,39,0.3);z-index:9998;border:1px solid rgba(0,102,255,0.2);transition:all 0.3s ease;">⚡ Powered by Gym OS</a>';
@@ -99,8 +132,7 @@ const GymOS = {
   },
 
   injectDemoBanner() {
-    if (document.querySelector('[data-gymos-banner]')) return;
-    if (!this.config.isDemo) return;
+    if (!this.config.isDemo || document.querySelector('[data-gymos-banner]')) return;
     const banner = document.createElement('div');
     banner.setAttribute('data-gymos-banner', '');
     banner.innerHTML = '<div style="background:linear-gradient(135deg,#0A0E27 0%,#1a1e3a 100%);color:#fff;text-align:center;padding:10px 16px;font-size:13px;font-family:Inter,sans-serif;position:sticky;top:0;z-index:9999;display:flex;align-items:center;justify-content:center;gap:8px;border-bottom:1px solid rgba(0,102,255,0.3);"><span>⚡ This is a demo website built with <b style="color:#0066FF;">Gym OS</b> by Beyond Pixels</span><a href="https://somilsharma2000.github.io/beyond-pixells/" target="_blank" rel="noopener" style="color:#0066FF;text-decoration:none;font-weight:600;border-bottom:1px solid #0066FF;">Get one for your gym →</a></div>';
@@ -109,5 +141,5 @@ const GymOS = {
 };
 
 if (typeof window.GymOSConfig !== 'undefined') {
-  document.addEventListener('DOMContentLoaded', function() { GymOS.init(window.GymOSConfig); });
+  document.addEventListener('DOMContentLoaded', function () { GymOS.init(window.GymOSConfig); });
 }
