@@ -3,22 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Oxigen Fitness — considered training, clear progress, and a connected member experience." />
-    <title>Oxigen Fitness | Gym OS Integrated</title>
-<link rel="canonical" href="https://somilsharma2000.github.io/oxigen-fitness-digital/">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Oxigen Fitness">
-<meta property="og:description" content="Premium fitness gym in Jaipur, India.">
-<meta property="og:url" content="https://somilsharma2000.github.io/oxigen-fitness-digital/">
+    <meta name="description" content="Oxigen Fitness Jaipur — purposeful programming, practical coaching, and a connected Gym OS member experience: QR check-in, WhatsApp-first support, instant booking." />
+    <title>Oxigen Fitness Jaipur | Connected Gym OS Experience</title>
+    <link rel="canonical" href="https://somilsharma2000.github.io/oxigen-fitness-digital/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Oxigen Fitness Jaipur">
+    <meta property="og:description" content="Purposeful training, connected member experience. Powered by Gym OS.">
+    <meta property="og:url" content="https://somilsharma2000.github.io/oxigen-fitness-digital/">
+    <meta name="theme-color" content="#08090C">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./styles.css" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HealthClub", "name": "Oxigen Fitness", "url": "https://somilsharma2000.github.io/oxigen-fitness-digital/", "description": "Premium fitness gym in Jaipur, India.", "publisher": {"@type": "Organization", "name": "Beyond Pixells", "url": "https://somilsharma2000.github.io/beyond-pixells/"}}</script>
-</head>
-  <body>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- Beyond Pixells shared design system (tokens + v2 motion & lighting) -->
+    <link rel="stylesheet" href="https://somilsharma2000.github.io/beyond-pixells/assets/bp-design-system.css">
+    <link rel="stylesheet" href="./styles.css">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"HealthClub","name":"Oxigen Fitness","url":"https://somilsharma2000.github.io/oxigen-fitness-digital/","description":"Connected fitness club in Jaipur, India.","publisher":{"@type":"Organization","name":"Beyond Pixells","url":"https://somilsharma2000.github.io/beyond-pixells/"}}</script>
+  </head>
+  <body class="bp-noise-canvas">
+    <div class="bp-scroll-progress-bar"></div>
     <div class="site-shell">
-      <header class="site-header" id="top">
+
+      <header class="site-header bp-nav-sticky" id="top">
         <a class="brand" href="#top" aria-label="Oxigen Fitness home">
           <span class="brand-mark">O</span>
           <span id="brand-name">OXIGEN FITNESS</span>
@@ -30,350 +35,217 @@
           <a href="#trainers">Coaches</a>
           <a href="#membership">Memberships</a>
           <a href="#facilities">Facilities</a>
-          <a href="#testimonials">Stories</a>
           <a href="#qr-checkin">Check-in</a>
-          <a href="#contact">Contact</a>
+          <a href="#trial">Trial</a>
         </nav>
         <div class="header-actions">
           <a class="member-login-link" data-gymos-login href="#">Member Login</a>
-          <a class="button button-dark header-cta" href="#trial">Book a trial <span>↗</span></a>
+          <a class="button button-primary bp-magnetic-btn" data-contact="whatsApp" href="#" target="_blank" rel="noopener">WhatsApp us <span>↗</span></a>
         </div>
       </header>
 
       <main>
-        <!-- HERO SECTION -->
+        <!-- HERO -->
         <section id="hero" class="hero section-pad">
-          <div class="eyebrow"><span></span><span id="location-label">MEMBER-LED TRAINING</span></div>
+          <div class="eyebrow bp-hero-step" style="--bp-hero-delay:0ms"><span class="dot"></span><span id="location-label">JAIPUR · MEMBER-LED TRAINING</span></div>
           <div class="hero-grid">
             <div>
-              <h1>Training with <em>intent.</em><br />Progress with a plan.</h1>
-              <p class="hero-copy" id="public-description">A considered club for people who want strength, momentum and a routine built around the life they actually lead.</p>
-              <div class="hero-actions">
-                <a class="button button-dark" href="#trial">Book a trial <span>↗</span></a>
-                <a class="button button-light" href="#about">Explore the club</a>
+              <h1 class="bp-hero-step" style="--bp-hero-delay:100ms">Training with <span class="hl">intent.</span><br />Progress with a plan.</h1>
+              <p class="hero-copy bp-hero-step" style="--bp-hero-delay:220ms" id="public-description">A connected club for people who want strength, momentum and a routine built around the life they actually lead.</p>
+              <div class="hero-actions bp-hero-step" style="--bp-hero-delay:340ms">
+                <a class="button button-primary bp-magnetic-btn" data-contact="whatsApp" href="#" target="_blank" rel="noopener">Book a trial on WhatsApp <span>↗</span></a>
+                <a class="button button-ghost" href="#trial">Use the trial form</a>
               </div>
-              <p class="micro-copy">Your enquiry is handled directly via Gym OS connected workflow. Details are only used to manage your trial.</p>
+              <p class="micro-copy bp-hero-step" style="--bp-hero-delay:460ms">⚡ Gym OS connected &nbsp;·&nbsp; QR check-in &nbsp;·&nbsp; Reply within 24 hours &nbsp;·&nbsp; No lock-in contracts</p>
             </div>
-            <aside class="hero-card" aria-label="Oxigen training philosophy">
+            <aside class="hero-card bp-hero-step bp-spotlight-card" style="--bp-hero-delay:300ms" aria-label="Oxigen training philosophy">
               <p class="card-kicker">THE MEMBER BRIEF</p>
-              <blockquote>“Less noise.<br />More <em>purpose.</em>”</blockquote>
+              <blockquote>“Less noise.<br />More <span class="hl">purpose.</span>”</blockquote>
               <div class="steps">
                 <span><b>01</b>Assess</span>
                 <span><b>02</b>Train</span>
                 <span><b>03</b>Repeat</span>
               </div>
+              <p class="hero-card-note">Your membership, bookings and check-ins run on the Gym OS member portal.</p>
             </aside>
           </div>
         </section>
 
-        <!-- ABOUT SECTION -->
+        <!-- ABOUT -->
         <section id="about" class="statement-band">
           <div class="statement-side">01 / ABOUT THE CLUB</div>
-          <div>
+          <div data-reveal>
             <p class="eyebrow-text">A MODERN MEMBER EXPERIENCE</p>
             <h2>Everything you need to train well. Nothing you do not.</h2>
-            <p>Oxigen brings together purposeful programming, practical coaching, a serene training floor and a clear path from first visit to lasting routine. Seamlessly integrated with Gym OS for instant lead response, touchless check-in, and member tracking.</p>
+            <p>Oxigen brings together purposeful programming, practical coaching and a clear path from first visit to lasting routine — integrated with Gym OS for instant lead response, touchless check-in and member tracking.</p>
             <div class="about-stats-grid">
-              <div class="stat-item">
-                <span class="stat-num">1,200m²</span>
-                <span class="stat-label">Purposeful training space</span>
-              </div>
-              <div class="stat-item">
-                <span class="stat-num">1:6</span>
-                <span class="stat-label">Small group coach ratio</span>
-              </div>
-              <div class="stat-item">
-                <span class="stat-num">100%</span>
-                <span class="stat-label">Gym OS connected workflows</span>
-              </div>
+              <div class="stat-item bp-spotlight-card"><span class="stat-num">24/7</span><span class="stat-label">Gym OS member portal access</span></div>
+              <div class="stat-item bp-spotlight-card"><span class="stat-num">1-tap</span><span class="stat-label">WhatsApp-first support</span></div>
+              <div class="stat-item bp-spotlight-card"><span class="stat-num">QR</span><span class="stat-label">Touchless check-in</span></div>
             </div>
           </div>
         </section>
 
-        <!-- PROGRAMS / TRAINING SECTION -->
+        <!-- PROGRAMS -->
         <section id="training" class="section-pad feature-grid">
-          <div class="feature-intro">
+          <div class="feature-intro" data-reveal>
             <p class="eyebrow-text">02 / TRAINING PROGRAMS</p>
-            <h2>One club.<br /><em>Three clear paths.</em></h2>
+            <h2>One club.<br /><span class="hl">Three clear paths.</span></h2>
             <p>Choose a starting point that matches your goal. Your coach helps you build consistency from day one.</p>
           </div>
           <div class="program-grid">
-            <article class="program-card">
+            <article class="program-card bp-spotlight-card" data-reveal>
               <p>01</p>
               <div>
                 <h3>Build Strength</h3>
-                <span>Structured coaching for progress you can feel outside the gym. Heavy compound lifts, movement alignment, and progressive overload.</span>
+                <span>Structured coaching for progress you can feel outside the gym: compound lifts, movement alignment, progressive overload.</span>
               </div>
             </article>
-            <article class="program-card warm">
+            <article class="program-card bp-spotlight-card" data-reveal>
               <p>02</p>
               <div>
                 <h3>Move Better</h3>
-                <span>Mobility, conditioning and a smarter relationship with effort. High-efficiency aerobic engines without joint strain.</span>
+                <span>Mobility, conditioning and a smarter relationship with effort — efficient aerobic engines without joint strain.</span>
               </div>
             </article>
-            <article class="program-card ink">
+            <article class="program-card bp-spotlight-card" data-reveal>
               <p>03</p>
               <div>
                 <h3>Find Your Rhythm</h3>
-                <span>Supportive coaching for a routine that fits real life. Habit integration, progressive feedback, and weekly milestones.</span>
+                <span>Supportive coaching for a routine that fits real life: habit integration, progressive feedback, weekly milestones.</span>
               </div>
             </article>
           </div>
         </section>
 
-        <!-- CLASS SCHEDULE SECTION -->
+        <!-- TIMETABLE (filterable) -->
         <section id="classes" class="section-pad split-section">
-          <div>
+          <div data-reveal>
             <p class="eyebrow-text">03 / CLASS SCHEDULE</p>
-            <h2>Useful sessions.<br /><em>Real energy.</em></h2>
-            <p>Classes are shaped around strength, conditioning, and sustainable movement. Book your spot through the member portal or reserve a trial visit.</p>
+            <h2>Useful sessions.<br /><span class="hl">Real energy.</span></h2>
+            <p>Classes are shaped around strength, conditioning and sustainable movement. Book your spot on WhatsApp — it lands directly with the team.</p>
             <a href="#trial" class="text-link">Ask about class availability <span>→</span></a>
           </div>
-          <div class="class-list-grid">
-            <article class="class-card">
-              <div class="class-meta">
-                <span class="class-badge">STRENGTH</span>
-                <span class="class-time">Mon, Wed, Fri • 07:00 & 18:00</span>
-              </div>
-              <h3>Foundations</h3>
-              <p>Coach-led strength work focused on fundamental barbell mechanics, dumbbell control, and core stability.</p>
-            </article>
-
-            <article class="class-card">
-              <div class="class-meta">
-                <span class="class-badge">CONDITIONING</span>
-                <span class="class-time">Tue, Thu • 06:30 & 17:30 | Sat • 09:00</span>
-              </div>
-              <h3>Engine</h3>
-              <p>A paced, scalable aerobic conditioning session utilizing rowers, SkiErgs, and bodyweight intervals.</p>
-            </article>
-
-            <article class="class-card">
-              <div class="class-meta">
-                <span class="class-badge">MOVEMENT</span>
-                <span class="class-time">Wed, Sun • 10:00 & 16:00</span>
-              </div>
-              <h3>Reset</h3>
-              <p>Deep joint mobility, active recovery, postural alignment, and guided breathwork for a balanced training week.</p>
-            </article>
-
-            <article class="class-card">
-              <div class="class-meta">
-                <span class="class-badge">ATHLETIC</span>
-                <span class="class-time">Mon, Thu • 19:00</span>
-              </div>
-              <h3>Athletic Performance</h3>
-              <p>Explosive power, plyometrics, agility, and rotational core strength for peak athletic capacity.</p>
-            </article>
-
-            <article class="class-card">
-              <div class="class-meta">
-                <span class="class-badge">FUNCTIONAL</span>
-                <span class="class-time">Tue, Sat • 08:00</span>
-              </div>
-              <h3>Core & Alignment</h3>
-              <p>Targeted posterior chain work, anti-rotational strength, and postural mechanics designed for busy professionals.</p>
-            </article>
-
-            <article class="class-card">
-              <div class="class-meta">
-                <span class="class-badge">HYBRID</span>
-                <span class="class-time">Sat, Sun • 10:30</span>
-              </div>
-              <h3>Weekend Sweat</h3>
-              <p>High-energy team training combining partner circuits, kettlebell complexes, and aerobic intervals.</p>
-            </article>
+          <div class="timetable-wrap" data-reveal>
+            <div class="filter-chips" id="class-filters" role="tablist" aria-label="Filter classes by type"></div>
+            <div class="class-list-grid" id="class-grid"></div>
           </div>
         </section>
 
-        <!-- TRAINERS SECTION -->
+        <!-- COACHES (config-driven, never invented) -->
         <section id="trainers" class="section-pad people-section-full">
-          <div class="trainers-header">
+          <div class="trainers-header" data-reveal>
             <p class="eyebrow-text">04 / EXPERT COACHES</p>
-            <h2>Coaching that<br /><em>stays personal.</em></h2>
-            <p>Our experienced coaching team brings expertise, technical focus, and genuine care to every session on the floor.</p>
+            <h2>Coaching that<br /><span class="hl">stays personal.</span></h2>
+            <p>Our coaching team brings expertise, technical focus and genuine care to every session on the floor.</p>
           </div>
-          <div class="trainers-grid">
-            <article class="trainer-card">
-              <div class="trainer-avatar">MV</div>
-              <span class="trainer-role">HEAD OF STRENGTH</span>
-              <h3>Marcus Vance</h3>
-              <p class="trainer-bio">CSCS certified with 12+ years in high-performance athlete conditioning. Specializes in barbell biomechanics and progressive hypertrophy.</p>
-              <div class="trainer-tags"><span>Barbell</span><span>Biomechanics</span><span>CSCS</span></div>
-            </article>
-
-            <article class="trainer-card warm">
-              <div class="trainer-avatar">ER</div>
-              <span class="trainer-role">MOVEMENT & MOBILITY</span>
-              <h3>Elena Rostova</h3>
-              <p class="trainer-bio">Former competitive gymnast focusing on joint longevity, active mobility, and movement rehabilitation for long-term health.</p>
-              <div class="trainer-tags"><span>Mobility</span><span>Rehab</span><span>Flow</span></div>
-            </article>
-
-            <article class="trainer-card ink">
-              <div class="trainer-avatar">DC</div>
-              <span class="trainer-role">ENDURANCE & HYBRID</span>
-              <h3>David Chen</h3>
-              <p class="trainer-bio">Ultra-endurance coach helping members build sustainable aerobic engines, work capacity, and energy management.</p>
-              <div class="trainer-tags"><span>Endurance</span><span>Energy Systems</span><span>Hybrid</span></div>
-            </article>
-          </div>
+          <div class="trainers-grid" id="trainers-grid"></div>
         </section>
 
-        <!-- MEMBERSHIP PLANS SECTION -->
+        <!-- MEMBERSHIPS (config-driven ₹ plans) -->
         <section id="membership" class="membership-wrap">
-          <div class="membership-copy">
+          <div class="membership-copy" data-reveal>
             <p class="eyebrow-text">05 / MEMBERSHIP TIERS</p>
-            <h2>Join with clarity.<br /><em>Transparent pricing.</em></h2>
-            <p>Flexible membership options built for consistency. All tiers include Gym OS member portal integration, digital check-in, and coach check-ins.</p>
+            <h2>Join with clarity.<br /><span class="hl">Transparent pricing.</span></h2>
+            <p>Flexible options built for consistency. All tiers include the Gym OS member portal, touchless check-in and WhatsApp support.</p>
           </div>
-          <div class="membership-cards-grid">
-            <article class="membership-card">
-              <p class="card-kicker">ESSENTIAL</p>
-              <h3>Club Pass</h3>
-              <div class="price-tag"><span class="amount">$89</span><span class="period">/ month</span></div>
-              <p class="plan-desc">Ideal for self-guided lifters wanting full access to our curated strength floor and quiet atmosphere.</p>
-              <ul class="plan-features">
-                <li>Full training floor access (05:00 - 23:00)</li>
-                <li>Touchless QR Check-in via Gym OS</li>
-                <li>Boutique locker rooms & rainfall showers</li>
-                <li>1 monthly guest pass</li>
-              </ul>
-              <a href="#trial" class="button button-dark">Select Plan <span>↗</span></a>
-            </article>
-
-            <article class="membership-card featured-card">
-              <div class="popular-badge">MOST POPULAR</div>
-              <p class="card-kicker">ALL-ACCESS</p>
-              <h3>Performance</h3>
-              <div class="price-tag"><span class="amount">$149</span><span class="period">/ month</span></div>
-              <p class="plan-desc">Our primary membership for members who want unlimited small-group classes and coach guidance.</p>
-              <ul class="plan-features">
-                <li>24/7 Unlimited club & facility access</li>
-                <li>Unlimited scheduled group classes</li>
-                <li>Monthly 1-on-1 coach progress review</li>
-                <li>Full Gym OS member portal & booking</li>
-                <li>Infrared sauna & recovery zone access</li>
-                <li>3 monthly guest passes</li>
-              </ul>
-              <a href="#trial" class="button button-gold">Select Plan <span>↗</span></a>
-            </article>
-
-            <article class="membership-card dark-card">
-              <p class="card-kicker">PREMIER</p>
-              <h3>Personalized</h3>
-              <div class="price-tag"><span class="amount">$249</span><span class="period">/ month</span></div>
-              <p class="plan-desc">Complete 1-on-1 coaching integration for maximum results, individual programming, and accountability.</p>
-              <ul class="plan-features">
-                <li>Everything in All-Access tier</li>
-                <li>4 monthly 1-on-1 private coaching sessions</li>
-                <li>Personalized nutrition & habit plan</li>
-                <li>Priority class & trainer booking</li>
-                <li>Unlimited guest passes</li>
-                <li>Complimentary towel & locker service</li>
-              </ul>
-              <a href="#trial" class="button button-light">Select Plan <span>↗</span></a>
-            </article>
-          </div>
+          <div class="membership-cards-grid" id="plans-grid"></div>
         </section>
 
-        <!-- FACILITIES SECTION -->
+        <!-- FACILITIES -->
         <section id="facilities" class="facility-grid-four">
-          <div class="facility-panel black">
+          <div class="facility-panel lead-panel" data-reveal>
             <p class="eyebrow-text">06 / FACILITIES</p>
-            <h2>Built for focus.<br /><em>Crafted for work.</em></h2>
-            <p>Every square meter of Oxigen Fitness is engineered for purposeful training. From custom Eleiko platforms to recovery suites.</p>
+            <h2>Built for focus.<br /><span class="hl">Crafted for work.</span></h2>
+            <p>Every square meter of Oxigen Fitness is engineered for purposeful training.</p>
           </div>
-          <div class="facility-panel bronze">
+          <div class="facility-panel bp-spotlight-card" data-reveal>
             <p class="card-kicker">THE EQUIPMENT</p>
             <div class="equipment-lines">
-              <span>ELEIKO STRENGTH PLATFORMS</span>
-              <span>CONCEPT2 & WOODWAY RUNNERS</span>
-              <span>CUSTOM RIG & TURF ZONE</span>
+              <span>COMPETITION-GRADE STRENGTH PLATFORMS</span>
+              <span>ROWERS &amp; CONDITIONING RUNNERS</span>
+              <span>CUSTOM RIG &amp; TURF ZONE</span>
             </div>
           </div>
-          <div class="facility-panel warm-bg">
+          <div class="facility-panel bp-spotlight-card" data-reveal>
             <p class="card-kicker">RECOVERY SUITE</p>
-            <h3>Infrared Sauna & Contrast Therapy</h3>
-            <p>Accelerate recovery, reduce inflammation, and decompress after intense training in our quiet wellness bays.</p>
+            <h3>Sauna &amp; Recovery</h3>
+            <p>Decompress after intense training in our quiet wellness bays.</p>
           </div>
-          <div class="facility-panel dark-bg">
+          <div class="facility-panel bp-spotlight-card" data-reveal>
             <p class="card-kicker">AMENITIES</p>
-            <h3>Boutique Locker Rooms</h3>
-            <p>Private rainfall showers, plush towel service, keyless digital lockers, and Dyson grooming amenities.</p>
+            <h3>Locker Rooms</h3>
+            <p>Showers, towel service and keyless digital lockers.</p>
           </div>
         </section>
 
-        <!-- TESTIMONIALS SECTION -->
+        <!-- WHY MEMBERS STAY (honest — feature facts, not invented reviews) -->
         <section id="testimonials" class="section-pad testimonials-section">
-          <div class="testimonials-header">
-            <p class="eyebrow-text">07 / MEMBER REVIEWS</p>
-            <h2>Real stories.<br /><em>Measured progress.</em></h2>
-            <p>Hear from individuals who have made Oxigen Fitness an essential part of their routine.</p>
+          <div class="testimonials-header" data-reveal>
+            <p class="eyebrow-text">07 / WHY MEMBERS STAY</p>
+            <h2>The connected<br /><span class="hl">difference.</span></h2>
+            <p>What changes when your membership runs on a real operating system.</p>
           </div>
           <div class="testimonials-grid">
-            <article class="testimonial-card">
-              <div class="rating-stars">★★★★★</div>
-              <blockquote>“Oxigen changed my entire perspective on training. The coaches focus on longevity and form rather than mindless fatigue. The Gym OS portal makes class booking effortless.”</blockquote>
-              <div class="reviewer-info">
-                <strong>Sarah Jenkins</strong>
-                <span>Member for 2 years</span>
-              </div>
+            <article class="testimonial-card bp-spotlight-card" data-reveal>
+              <div class="ico bp-icon-hover">⚡</div>
+              <h3>Book in seconds</h3>
+              <blockquote>Schedule classes and sessions from the member portal — no phone calls, no waiting.</blockquote>
             </article>
-
-            <article class="testimonial-card warm">
-              <div class="rating-stars">★★★★★</div>
-              <blockquote>“The cleanest, most well-thought-out gym space I've ever trained in. No waiting for equipment, fantastic atmosphere, and the contactless QR check-in is super fast.”</blockquote>
-              <div class="reviewer-info">
-                <strong>Liam Thorne</strong>
-                <span>Member for 1 year</span>
-              </div>
+            <article class="testimonial-card bp-spotlight-card" data-reveal>
+              <div class="ico bp-icon-hover">🛡️</div>
+              <h3>Never lose a payment</h3>
+              <blockquote>Renewals and dues stay visible. Reminders arrive on WhatsApp before anything lapses.</blockquote>
             </article>
-
-            <article class="testimonial-card dark">
-              <div class="rating-stars">★★★★★</div>
-              <blockquote>“The All-Access membership is worth every penny. Elena's Reset classes fixed my desk-job lower back pain, and Marcus's strength program doubled my deadlift!”</blockquote>
-              <div class="reviewer-info">
-                <strong>Amara Okafor</strong>
-                <span>Member for 6 months</span>
-              </div>
+            <article class="testimonial-card bp-spotlight-card" data-reveal>
+              <div class="ico bp-icon-hover">📊</div>
+              <h3>See your progress</h3>
+              <blockquote>Check-ins, attendance and training history — yours, in the portal, always.</blockquote>
             </article>
+          </div>
+          <div id="reviews-badge" class="reviews-badge" hidden>
+            <a class="reviews-link" id="reviews-link" href="#" target="_blank" rel="noopener">
+              <span class="g-logo">G</span>
+              <span><b id="reviews-rating"></b> on Google · <span id="reviews-count"></span> reviews</span>
+              <span class="stars" id="reviews-stars"></span>
+            </a>
           </div>
         </section>
 
-        <!-- QR CHECK-IN SECTION -->
+        <!-- QR CHECK-IN -->
         <section id="qr-checkin" class="section-pad qr-section">
           <div class="qr-container">
-            <div class="qr-text">
+            <div class="qr-text" data-reveal>
               <p class="eyebrow-text">08 / MEMBER EXPRESS CHECK-IN</p>
               <h2>Touchless QR Check-in</h2>
-              <p>Scan your personal QR code at the front desk terminal or open it on your mobile device to log your visit instantly into Gym OS.</p>
+              <p>Scan your personal QR code at the front desk terminal or open it on your phone to log your visit instantly into Gym OS.</p>
               <div class="qr-badges">
                 <span class="qr-badge">⚡ Gym OS Connected</span>
                 <span class="qr-badge">✓ Contactless</span>
               </div>
             </div>
-            <div class="qr-box-wrap">
-              <div data-gymos-qr></div>
-            </div>
+            <div class="qr-box-wrap bp-spotlight-card" data-reveal><div data-gymos-qr></div></div>
           </div>
         </section>
 
-        <!-- TRIAL JOURNEY & LEAD FORM SECTION -->
+        <!-- TRIAL + LEAD FORM -->
         <section id="trial" class="trial-section section-pad">
-          <div>
+          <div data-reveal>
             <p class="eyebrow-text">09 / TRIAL JOURNEY</p>
-            <h2>Start with<br /><em>one useful visit.</em></h2>
-            <p>Tell us what you want to work on. The club team will confirm the most suitable visit time and next step.</p>
-            <ol>
+            <h2>Start with<br /><span class="hl">one useful visit.</span></h2>
+            <p>Tell us what you want to work on. The team confirms the most suitable visit time and next step.</p>
+            <ol class="trial-steps">
               <li><b>01</b><span>Share your goal and contact details below.</span></li>
               <li><b>02</b><span>A team member confirms your visit within 24 hours.</span></li>
               <li><b>03</b><span>Train, ask questions, and decide with total clarity.</span></li>
             </ol>
+            <div id="upi-trial" class="upi-trial" hidden>
+              <p class="upi-label" id="upi-label"></p>
+              <a class="button button-ghost" id="upi-link" href="#" target="_blank" rel="noopener">Reserve with UPI <span>↗</span></a>
+            </div>
           </div>
 
-          <form data-gymos-lead class="lead-form" id="trial-form">
+          <form data-gymos-lead class="lead-form bp-spotlight-card" id="trial-form" data-reveal>
             <input type="hidden" name="interest" value="Trial Visit" />
             <label>Full name
               <input name="fullName" required minlength="2" autocomplete="name" placeholder="Your full name" />
@@ -396,24 +268,24 @@
               <input name="consent" type="checkbox" required />
               <span>I agree that Oxigen Fitness may use these details to respond to my enquiry. Managed via Gym OS.</span>
             </label>
-            <button class="button button-dark form-submit" type="submit">Request a trial <span>↗</span></button>
+            <button class="button button-primary bp-magnetic-btn form-submit" type="submit">Request a trial <span>↗</span></button>
             <p class="form-status" role="status" aria-live="polite"></p>
             <p class="form-managed-note">⚡ Lead capture directly connected to Gym OS CRM</p>
           </form>
         </section>
 
-        <!-- CONTACT SECTION -->
+        <!-- CONTACT -->
         <section id="contact" class="contact-section">
-          <div>
+          <div data-reveal>
             <p class="eyebrow-text">10 / CONTACT US</p>
-            <h2>Let’s make the<br /><em>first step easy.</em></h2>
-            <p id="contact-copy">Have questions about memberships or facilities? Reach out directly via WhatsApp, Instagram, or Email.</p>
+            <h2>Let’s make the<br /><span class="hl">first step easy.</span></h2>
+            <p id="contact-copy">Have questions about memberships or facilities? Reach out directly via WhatsApp.</p>
           </div>
-          <div class="contact-actions">
-            <a class="button button-dark" data-contact="whatsApp" href="https://wa.me/917737077479" target="_blank" rel="noopener">WhatsApp the club <span>↗</span></a>
-            <a class="button button-light" data-contact="instagramUrl" href="https://instagram.com" target="_blank" rel="noopener">Follow on Instagram <span>↗</span></a>
-            <a class="text-link" data-contact="email" href="mailto:info@oxigenfitness.com">Email the club <span>→</span></a>
-            <p class="contact-note">Oxigen Fitness · 100 Main Street · Member-Led Training Space</p>
+          <div class="contact-actions" data-reveal>
+            <a class="button button-primary bp-magnetic-btn" data-contact="whatsApp" href="#" target="_blank" rel="noopener">WhatsApp the club <span>↗</span></a>
+            <a class="button button-ghost" data-contact="instagramUrl" href="#" target="_blank" rel="noopener" hidden>Follow on Instagram <span>↗</span></a>
+            <a class="text-link" data-contact="email" href="#" hidden>Email the club <span>→</span></a>
+            <p class="contact-note" id="contact-note"></p>
           </div>
         </section>
       </main>
@@ -426,39 +298,32 @@
               <span class="brand-mark">O</span>
               <span id="footer-brand">OXIGEN FITNESS</span>
             </a>
-            <p class="footer-tagline">Considered training, clear progress, and a connected member experience.</p>
+            <p class="footer-tagline">Purposeful training, clear progress, and a connected member experience.</p>
           </div>
-
           <div class="footer-nav-col">
             <h4>Navigation</h4>
             <a href="#about">About</a>
             <a href="#training">Programs</a>
             <a href="#classes">Timetable</a>
-            <a href="#trainers">Coaches</a>
             <a href="#membership">Memberships</a>
           </div>
-
           <div class="footer-nav-col">
-            <h4>Member & Staff</h4>
+            <h4>Member &amp; Staff</h4>
             <a data-gymos-login href="#">Member Portal</a>
             <a data-gymos-dashboard href="#">Staff Dashboard</a>
             <a href="#qr-checkin">QR Check-in</a>
             <a href="#trial">Book a Trial</a>
           </div>
-
           <div class="footer-contact-col">
-            <h4>Contact & Social</h4>
-            <p>📍 Oxigen Fitness Studio</p>
-            <p>📞 +91 77370 77479</p>
-            <p>✉️ info@oxigenfitness.com</p>
+            <h4>Contact &amp; Social</h4>
+            <p id="footer-address">📍 Oxigen Fitness Studio, Jaipur</p>
+            <p id="footer-phone">📞 +91 77370 77479</p>
             <div class="footer-socials">
-              <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a> ·
-              <a href="https://wa.me/917737077479" target="_blank" rel="noopener">WhatsApp</a> ·
-              <a href="mailto:info@oxigenfitness.com">Email</a>
+              <a data-contact="whatsApp" href="#" target="_blank" rel="noopener">WhatsApp</a>
+              <a data-contact="instagramUrl" href="#" target="_blank" rel="noopener" hidden>Instagram</a>
             </div>
           </div>
         </div>
-
         <div class="footer-bottom">
           <a class="footer-credit" href="https://somilsharma2000.github.io/beyond-pixells/" target="_blank" rel="noopener">⚡ Powered by Beyond Pixells — Gym OS</a>
           <span>© 2026 Oxigen Fitness. All rights reserved.</span>
@@ -467,9 +332,16 @@
       </footer>
     </div>
 
+    <!-- Floating WhatsApp widget -->
+    <a class="wa-float" id="wa-float" href="#" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+      <svg viewBox="0 0 32 32" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.7 6L4 29l8.2-1.6c1.2.6 2.5 1 3.8 1 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 22c-1.1 0-2.2-.2-3.2-.7l-.6-.3-4.9 1 1-4.7-.3-.6c-1-1.9-1.5-3.9-1.5-6 0-5.5 4.5-10 10-10s10 4.5 10 10-4.5 10-10 10zm5.5-7.5c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.4-.5-2.6-1.6-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.4.5-.6.1-.2.2-.3.3-.5 0-.2 0-.4-.1-.5-.1-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .2.2 2 3.1 4.9 4.3 2.4 1 2.9.8 3.4.8.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.4z"/></svg>
+      <span class="wa-float-label" id="wa-float-label">Chat with the club</span>
+    </a>
+
     <script src="./site.config.js"></script>
     <script src="./script.js"></script>
     <script>window.GymOSConfig = { gymName: 'Oxigen Fitness', isDemo: true };</script>
     <script src="./gym-os-connect.js"></script>
+    <script src="https://somilsharma2000.github.io/beyond-pixells/assets/bp-motion.js"></script>
   </body>
 </html>

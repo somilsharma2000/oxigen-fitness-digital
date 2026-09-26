@@ -1,16 +1,16 @@
-# Owner Content Checklist
+# Oxigen Fitness — Owner Content Checklist
 
-This website is ready for owner-approved content. Do not publish a field until the gym owner has confirmed it in writing.
+Everything the club can change without a developer lives in **site.config.js**.
+Fill the real values below, then flip `isDemo:false` at the bottom of index.html.
 
-| Public area | Required owner-approved content | Current state |
-|---|---|---|
-| Contact | Phone, WhatsApp number, monitored email, physical address and operating hours. | Not supplied; intentionally hidden. |
-| Social | Instagram/Facebook URLs controlled by the business. | Not supplied; intentionally disabled. |
-| Trainers | Full name, public role, verified qualifications, short biography, approved photo and profile order. | Not supplied; configuration placeholder only. |
-| Facilities | Exact equipment, zones, shower/changing access, parking, accessibility and any restrictions. | Not supplied; no facility claim is published. |
-| Memberships | Plan name, inclusive/exclusive taxes, price, billing cadence, commitment, cancellation/freezing terms, joining fee, availability and legal approval. | Not supplied; no price or plan promise is published. |
-| Classes | Current timetable, booking rules, capacity, waiting-list policy and trainer assignment. | Not supplied; the site asks the club for current availability. |
-
-## Safe configuration sequence
-
-Update the Oxigen tenant’s public settings in Gym OS for basic contact and social actions. Maintain the detailed approved copy in this repository or a future CMS source, review it with the owner, then deploy the new commit. Never place provider keys, staff credentials, member data or QR data in `site.config.js`.
+- [ ] **whatsapp** — the club's own WhatsApp number (currently the studio line)
+- [ ] **instagram / email** — real URLs (empty = button stays hidden)
+- [ ] **address / phone / mapsUrl** — real location + Google Maps link
+- [ ] **googleRating / googleReviewCount** — pull from the club's Google Business profile (0 = badge hidden)
+- [ ] **upiId + trialPass** — UPI ID for trial-pass payments (empty = button hidden)
+- [ ] **plans[]** — real ₹ membership plans, owner-approved only (empty = honest "confirmed on visit" card)
+- [ ] **trainers[]** — real coach names, roles, bios (empty = generic team card — never invented people)
+- [ ] **classes[]** — real timetable slots
+- [ ] Hero description + tagline — club-approved copy
+- [ ] Facility claims (equipment, recovery suite, amenities) — confirm or correct
+- [ ] Owner sign-off → set `isDemo:false` in index.html (removes the demo banner)
